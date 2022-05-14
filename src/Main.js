@@ -25,6 +25,7 @@ class Main extends React.Component {
         this.setState({ locationLon: response.data[0].lon })
         this.setState({ locationLat: response.data[0].lat })
     };
+    errorMessage
     render() {
         return (
             <>
