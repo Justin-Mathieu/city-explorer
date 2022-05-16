@@ -18,3 +18,13 @@
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+Name of feature: Map of location
+
+Estimate of time needed to complete: 3 hours.
+
+Start time:5/10 6:30pm.
+
+Finish time: 5/16 12:00 pm.
+
+Actual time needed to complete: about 5 hours.

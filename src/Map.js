@@ -1,18 +1,15 @@
-import axios from 'axios';
 import React from 'react';
 import './App.css';
+import Image from 'react-bootstrap/Image'
+import Container from 'react-bootstrap/Container';
 
 class Map extends React.Component {
-    getMap = async () => {
-        const map = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOACTIONIQ_KEY}&center=4${this.props.logitude}&zoom=16&size=480x480&markers=icon:large-red-cutout`
-        mapImage = await axios.get(map)
-    }
+
     render() {
         return (
-            <>
-
-
-            </>
+            <Container >
+                <Image className='map' src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&center=${this.props.latitude},${this.props.longitude}&zoom=10`} />
+            </Container>
         );
     }
 };
