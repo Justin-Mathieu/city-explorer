@@ -35,6 +35,11 @@ class Main extends React.Component {
             this.handleErrorMessage(error);
         }
     };
+    getWeather = async () => {
+        const url = process.env.REACT_APP_API
+        const weatherData = await axios.get(`${url}/weaatherdata?city=paris`);
+        console.log(weatherData);
+    }
     handleErrorMessage = (error) => {
         console.error(error)
         this.setState({ errorMessage: `...Something went wrong ${error.response.data.error} status Code: ${error.response.status}` })
@@ -43,7 +48,7 @@ class Main extends React.Component {
         return (
             <>
                 <h2>The city you searched for is {this.state.locationName}, {this.state.locationLat}, {this.state.locationLon}</h2>
-                <SearchForm handleForm={this.handleForm} location={this.location} />
+                <SearchForm handleForm={this.handleForm} location={this.location} weather={this.getWeather} />
                 <Error message={this.state.errorMessage} />
                 <Map longitude={this.state.locationLon} latitude={this.state.locationLat} />
             </>
