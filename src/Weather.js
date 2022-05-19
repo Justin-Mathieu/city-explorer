@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import ListGroup from 'react-bootstrap/ListGroup'
-import Container from 'react-bootstrap/Container';
 
 class Weather extends React.Component {
 
