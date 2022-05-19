@@ -42,7 +42,7 @@ class Main extends React.Component {
     getWeather = async (error) => {
         try {
             const url = process.env.REACT_APP_API;
-            const weatherResults = await axios.get(`${url}/weather?city=${this.state.citySearch}`);
+            const weatherResults = await axios.get(`${url}/weather?locationlat=${this.state.locationLat}locationlon=${this.state.locationLon}`);
             console.log(weatherResults)
             this.setState({ weatherinfo: weatherResults.data.cityArr });
             console.log(this.state.weatherinfo);
