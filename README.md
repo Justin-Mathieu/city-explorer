@@ -30,3 +30,13 @@ Start time:5/10 6:30pm.
 Finish time: 5/16 12:00 pm.
 
 Actual time needed to complete: about 5 hours.
+
+Name of feature: Lab 07 (server/weather data)
+
+Estimate of time needed to complete:
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
