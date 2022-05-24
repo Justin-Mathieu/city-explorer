@@ -5,6 +5,8 @@ import SearchForm from './SearchForm';
 import Map from './Map';
 import Error from './Error';
 import Weather from './Weather';
+import Movie from './Movie';
+
 class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -13,7 +15,8 @@ class Main extends React.Component {
             locationLat: '',
             locationLon: '',
             errorMessage: '',
-            weatherinfo: []
+            weatherinfo: [],
+            movieinfo: []
 
 
         }
@@ -42,15 +45,27 @@ class Main extends React.Component {
     getWeather = async (error) => {
         try {
             const url = process.env.REACT_APP_API;
-            const weatherResults = await axios.get(`${url}/weather?locationlat=${this.state.locationLat}locationlon=${this.state.locationLon}`);
-            console.log(weatherResults)
-            this.setState({ weatherinfo: weatherResults.data.cityArr });
-            console.log(this.state.weatherinfo);
+            const weatherResults = await axios.get(`${url}/weather?lat=${this.state.locationLat}&lon=${this.state.locationLon}`);
+            this.setState({ weatherinfo: weatherResults.data });
         } catch (error) {
             error.customMessage = 'No Weather Data'
             this.handleErrorMessage(error);
         }
     }
+
+    getMovies = async (error) => {
+        try {
+            const url = process.env.REACT_APP_API;
+            const movieResults = await axios.get(`${url}/movies?search=${this.state.citySearch}`);
+            console.log('this is the first result', movieResults.data)
+            this.setState({ movieinfo: movieResults.data });
+
+        } catch (error) {
+            error.customMessage = 'No movie Data'
+            this.handleErrorMessage(error);
+        }
+    }
+
 
     handleErrorMessage = (error) => {
         console.error(error)
@@ -60,10 +75,11 @@ class Main extends React.Component {
         return (
             <>
                 {this.state.locationLat && <h2>The city you searched for is {this.state.locationName}, {this.state.locationLat}, {this.state.locationLon}</h2>}
-                <SearchForm handleForm={this.handleForm} location={this.location} weather={this.getWeather} />
+                <SearchForm handleForm={this.handleForm} location={this.location} weather={this.getWeather} movies={this.getMovies} />
                 <Error message={this.state.errorMessage} />
                 <Map longitude={this.state.locationLon} latitude={this.state.locationLat} />
                 <Weather weather={this.state.weatherinfo} />
+                <Movie movieinfo={this.state.movieinfo} />
             </>
         );
     }
