@@ -6,6 +6,7 @@ class SearchForm extends React.Component {
     handler = () => {
         this.props.weather();
         this.props.location();
+        this.props.movies();
     }
 
     render() {
