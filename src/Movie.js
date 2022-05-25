@@ -1,6 +1,11 @@
 import React from 'react';
 import './App.css';
-import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap./Card';
+import Container from 'react-bootstrap./Container';
+import ListGroup from 'react-bootstrap./ListGroup';
+import ListGroupItem from 'react-bootstrap./ListGroupItem';
+
+
 
 class Weather extends React.Component {
 
@@ -8,23 +13,25 @@ class Weather extends React.Component {
         return (
             <>
                 {this.props.movieinfo.map(card =>
-                    < Card >
-                        <div class="card">
-                            <img class="card-top" src={`https://image.tmdb.org/t/p/w500${card.image}`} alt={card.title} />
-                            <div class="card-body">
-                                <h5 class="card-title">{card.title}</h5>
-                                <p class="card-text">{card.overview}</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Average Votes: {card.avgVotes}</li>
-                                <li class="list-group-item">Popularity: {card.pop}</li>
-                                <li class="list-group-item">Release Date: {card.release}</li>
-                            </ul>
-                            <div class="card-body">
-                            </div>
-                        </div>
+                    < Container >
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src= {`https://image.tmdb.org/t/p/w500${card.image}`} alt={card.title}/>
+                            <Card.Body>
+                                <Card.Title>{card.title}</Card.Title>
+                                <Card.Text>
+                                    {card.overview}
+                                </Card.Text>
+                            </Card.Body>
+                            <ListGroup className="list-group-flush">
+                                <ListGroupItem>Release Date{card.release}</ListGroupItem>
+                                <ListGroupItem>Average Votes: {card.avgVotes}</ListGroupItem>
+                                <ListGroupItem>Popularity: {card.pop}</ListGroupItem>
+                            </ListGroup>
+                            <Card.Body>
+                            </Card.Body>
+                        </Card>
 
-                    </Card>)}
+                    </Container>)}
             </>
         );
     }
