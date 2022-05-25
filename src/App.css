@@ -14,3 +14,12 @@
 .footer {
   background-color: rgb(133, 132, 132);
 }
+.card{
+  background-color: gray;
+  margin: auto;
+
+}
+.img{
+  margin: auto;
+  width: 18rem;
+}
