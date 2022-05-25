@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import Card from 'react-bootstrap./Card';
-import Container from 'react-bootstrap./Container';
-import ListGroup from 'react-bootstrap./ListGroup';
-import ListGroupItem from 'react-bootstrap./ListGroupItem';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroupItem from 'react-bootstrap/ListGroupItem';
 
 
 
@@ -15,7 +15,7 @@ class Weather extends React.Component {
                 {this.props.movieinfo.map(card =>
                     < Container >
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src= {`https://image.tmdb.org/t/p/w500${card.image}`} alt={card.title}/>
+                            <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${card.image}`} alt={card.title} />
                             <Card.Body>
                                 <Card.Title>{card.title}</Card.Title>
                                 <Card.Text>
