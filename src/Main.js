@@ -56,7 +56,7 @@ class Main extends React.Component {
     getMovies = async (error) => {
         try {
             const url = process.env.REACT_APP_API;
-            const movieResults = await axios.get(`${url}/movie?search=${this.state.citySearch}`);
+            const movieResults = await axios.get(`${url}/movie?searchQuery=${this.state.citySearch}`);
             console.log('this is the first result', movieResults.data)
             this.setState({ movieinfo: movieResults.data });
 
