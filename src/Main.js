@@ -5,7 +5,7 @@ import SearchForm from './SearchForm';
 import Map from './Map';
 import Error from './Error';
 import Weather from './Weather';
-import Movie from './Movie';
+import Movies from './Movies.js';
 
 class Main extends React.Component {
     constructor(props) {
@@ -47,6 +47,7 @@ class Main extends React.Component {
             const url = process.env.REACT_APP_API;
             const weatherResults = await axios.get(`${url}/weather?lat=${this.state.locationLat}&lon=${this.state.locationLon}`);
             this.setState({ weatherinfo: weatherResults.data });
+            console.log(this.state.weatherinfo);
         } catch (error) {
             error.customMessage = 'No Weather Data'
             this.handleErrorMessage(error);
@@ -59,7 +60,7 @@ class Main extends React.Component {
             const movieResults = await axios.get(`${url}/movie?searchQuery=${this.state.citySearch}`);
             console.log('this is the first result', movieResults.data)
             this.setState({ movieinfo: movieResults.data });
-
+            console.log(this.state.movieinfo);
         } catch (error) {
             error.customMessage = 'No movie Data'
             this.handleErrorMessage(error);
@@ -79,7 +80,7 @@ class Main extends React.Component {
                 <Error message={this.state.errorMessage} />
                 <Map longitude={this.state.locationLon} latitude={this.state.locationLat} />
                 <Weather weather={this.state.weatherinfo} />
-                <Movie movieinfo={this.state.movieinfo} />
+                <Movies movieinfo={this.state.movieinfo} />
             </>
         );
     }

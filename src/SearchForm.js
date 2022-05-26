@@ -13,7 +13,7 @@ class SearchForm extends React.Component {
         return (
             <Container>
                 <input onChange={this.props.handleForm} placeholder='Search Here...' />
-                <button onClick={this.handler}>Explore!</button>
+                <button onClick={this.handler} type='submit'>Explore!</button>
             </Container>
         );
     }
