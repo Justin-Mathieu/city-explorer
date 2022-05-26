@@ -5,9 +5,9 @@ class Error extends React.Component {
     render() {
         return (
             <>
-                {this.props.message &&
-                    <h3>{this.props.message}</h3>
-                }</>
+
+                <h3>{this.props.message}</h3>
+            </>
         )
     }
 };

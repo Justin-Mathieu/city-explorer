@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: aqua;
+  background-color:white;
 }
 
 .header {
@@ -15,11 +15,11 @@
   background-color: rgb(133, 132, 132);
 }
 .card{
-  background-color: gray;
+  background-color: ghostwhite;
   margin: auto;
 
 }
 .img{
   margin: auto;
-  width: 18rem;
+  width: 30rem;
 }

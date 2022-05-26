@@ -1,23 +1,23 @@
 import React from 'react';
 import './App.css';
-import ListGroup from 'react-bootstrap/ListGroup'
+import Weatherday from './weatherDay';
 
 class Weather extends React.Component {
 
     render() {
         return (
             <>
-                {this.props.weather.length && <ListGroup>
+                {this.props.weather.map(day => (
+                    < Weatherday
+                        date={day.date}
+                        description={day.description}
+                        low={day.low}
+                        high={day.high}
 
-                    <ListGroup.Item>Low of {this.props.weather[0].low}, high of {this.props.weather[0].high} with "{this.props.weather[0].description}",
-                        "date": {this.props.weather[0].date}</ListGroup.Item>
-                    <ListGroup.Item>Low of{this.props.weather[1].low}, high of {this.props.weather[1].high} with "{this.props.weather[1].description}",
-                        "date": {this.props.weather[1].date}</ListGroup.Item>
+                    />
+                ))}
 
-                    <ListGroup.Item>Low of {this.props.weather[2].low}, high of {this.props.weather[2].high} with "{this.props.weather[2].description}",
-                        "date": {this.props.weather[2].date}</ListGroup.Item>
 
-                </ListGroup>}
             </>
         );
     }
